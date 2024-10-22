@@ -107,7 +107,7 @@ export const projects: Project[] = [
     name: 'App de Gestão de Equipes',
     description:
       'Uma ferramenta que facilita a colaboração entre membros da equipe e a organização de projetos.',
-    category: 'Web',
+    category: 'web',
   },
   {
     name: 'Sistema de Feedback de Clientes',
