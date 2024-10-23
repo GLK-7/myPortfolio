@@ -113,7 +113,7 @@ const Home = () => {
                 <li className="flex items-center">
                   <div className='bg-gradient-to-r from-[#bb86fc] to-[#cf6679] rounded-full px-4 flex items-center py-1'>
                     <i className="ms-Icon ms-Icon--MicrosoftFlowLogo mr-2" />
-                    Automatizações com Power Automate.
+                    Fluxos com Power Automate.
                   </div>
                 </li>
                 <li className="flex items-center">
