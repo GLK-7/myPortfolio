@@ -34,6 +34,12 @@ const ProjectCard = ({ project }: Props) => {
             <span className="md:text-base font-light">{project.description}</span>
           </p>
         </div>
+        <div>
+          <span>Techs</span>
+          <ul>
+            <li></li>
+          </ul>
+        </div>
         <div className="gap-2 w-full flex flex-wrap md:flex-nowrap justify-center md:justify-start overflow-x-auto h-auto">
           <Button title="GitHub" icon="devicon-github-original" link=""/>
           <Button title="Visualizar" icon="fa-solid fa-eye" link=""/>

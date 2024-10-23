@@ -94,20 +94,21 @@ const Projects = ({ projects }: Props) => {
         </TabsList>
       </Tabs>
 
-      <Carousel className="w-full" setApi={setApi}>
+      <Carousel
+  className={`w-full cursor-${isGrabbing ? 'grabbing' : 'grab'}`}
+  setApi={setApi}
+  onMouseDown={() => setIsGrabbing(true)}
+  onMouseUp={() => setIsGrabbing(false)}
+  onMouseLeave={() => setIsGrabbing(false)}
+>
         <CarouselContent className={'-ml-1'}>
           {filteredProjects.map((project) => (
             <CarouselItem
               key={project.name}
-              className={`pl-1 md:basis-1/2 lg:basis-1/3 cursor-${
-                isGrabbing ? 'grabbing' : 'grab'
-              }`} // Altera o cursor baseado no estado
-              onMouseDown={() => setIsGrabbing(true)} // Muda para grabbing ao clicar
-              onMouseUp={() => setIsGrabbing(false)} // Volta para grab ao soltar
-              onMouseLeave={() => setIsGrabbing(false)} // Garante que volte ao estado normal se sair do item
+              className={`pl-1 md:basis-1/2 lg:basis-1/3`} // Altera o cursor baseado no estado
             >
               <div className="p-1 border-0">
-                <ProjectCard project={project} />
+                <ProjectCard project={project}/>
               </div>
             </CarouselItem>
           ))}
