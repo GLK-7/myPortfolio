@@ -1,4 +1,5 @@
 import { Card, CardContent } from '@/components/ui/card';
+import Button from './Button';
 
 interface Project {
   name: string;
@@ -34,14 +35,8 @@ const ProjectCard = ({ project }: Props) => {
           </p>
         </div>
         <div className="gap-2 w-full flex flex-wrap md:flex-nowrap justify-center md:justify-start overflow-x-auto h-auto">
-          <button className="bg-gradient-to-r from-[#3700b3] to-[#6200ee] text-white rounded py-1 pl-2 pr-3 w-full md:w-full h-10 flex-grow">
-            <i className="devicon-github-original text-[#fff] m-1 mr-2" />
-            GitHub
-          </button>
-          <button className="bg-gradient-to-br from-[#3700b3] to-[#6200ee] text-white rounded py-1 pl-2 pr-3 w-full md:w-full h-10 flex-grow">
-            <i className="fa-solid fa-eye text-[#fff] m-1 mr-2" />
-            Visualizar
-          </button>
+          <Button title="GitHub" icon="devicon-github-original" link=""/>
+          <Button title="Visualizar" icon="fa-solid fa-eye" link=""/>
         </div>
 
 
