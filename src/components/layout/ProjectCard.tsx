@@ -11,8 +11,8 @@ interface Props {
 
 const ProjectCard = ({ project }: Props) => {
   return (
-    <Card className="border-0 bg-0">
-      <CardContent className="aspect-square justify-center p-6 bg-[#252525] rounded-lg shadow-md flex flex-col justify-between">
+    <Card className="border-0 bg-0 h-96 flex justify-center">
+      <CardContent className="aspect-square p-6 bg-[#252525] rounded-lg shadow-md flex flex-col justify-between h-96 w-full">
         <div>
           <i
             className={`${
@@ -23,26 +23,28 @@ const ProjectCard = ({ project }: Props) => {
                 : project.category === 'web'
                 ? 'fa-solid fa-window-restore'
                 : ''
-            } bg-gradient-to-r from-[#03dac6] to-[#bb86fc] bg-clip-text text-transparent text-xl m-1 mr-2`}
+            } bg-gradient-to-r from-[#03dac6] to-[#bb86fc] bg-clip-text text-transparent md:text-xl m-1 mr-2`}
           />
 
-          <span className="text-xl font-semibold bg-gradient-to-r from-[#bb86fc] to-[#cf6679] bg-clip-text text-transparent">
+          <span className="md:text-xl font-semibold bg-gradient-to-r from-[#bb86fc] to-[#cf6679] bg-clip-text text-transparent">
             {project.name}
           </span>
           <p className="mt-2">
-            <span className="">{project.description}</span>
+            <span className="md:text-base font-light">{project.description}</span>
           </p>
         </div>
-        <div className="flex flex gap-2 w-full justify-center">
-          <button className="bg-gradient-to-r from-[#3700b3] to-[#6200ee] text-white rounded py-1 pl-2 pr-3">
-            <i className="devicon-github-original text-[#fff] text-[1rem] m-1 mr-2" />
+        <div className="gap-2 w-full flex flex-wrap md:flex-nowrap justify-center md:justify-start overflow-x-auto h-auto">
+          <button className="bg-gradient-to-r from-[#3700b3] to-[#6200ee] text-white rounded py-1 pl-2 pr-3 w-full md:w-full h-10 flex-grow">
+            <i className="devicon-github-original text-[#fff] m-1 mr-2" />
             GitHub
           </button>
-          <button className="bg-gradient-to-br from-[#3700b3] to-[#6200ee] text-white rounded py-1 pl-2 pr-3 w-full">
-            <i className="fa-solid fa-eye text-[#fff] text-[1rem] m-1 mr-2" />
+          <button className="bg-gradient-to-br from-[#3700b3] to-[#6200ee] text-white rounded py-1 pl-2 pr-3 w-full md:w-full h-10 flex-grow">
+            <i className="fa-solid fa-eye text-[#fff] m-1 mr-2" />
             Visualizar
           </button>
         </div>
+
+
       </CardContent>
     </Card>
   );

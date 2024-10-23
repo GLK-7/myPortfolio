@@ -10,10 +10,10 @@ const analytcskills: Skill[] = [
   { name: 'Python', icon: 'fa-brands fa-python', type: 'analytcs' },
   {
     name: 'Power BI',
-    icon: 'ms-Icon ms-Icon--powerbilogo',
+    icon: 'ms-Icon ms-Icon--PowerBILogo',
     type: 'analytcs',
   },
-  { name: 'Excel', icon: 'ms-Icon ms-Icon--excellogo', type: 'analytcs' },
+  { name: 'Excel', icon: 'ms-Icon ms-Icon--ExcelLogo', type: 'analytcs' },
 ];
 
 // Array de habilidades web
@@ -36,7 +36,7 @@ const webskills: Skill[] = [
 const lowCodeSkills: Skill[] = [
   {
     name: 'Power Apps',
-    icon: 'ms-Icon ms-Icon--powerappslogo',
+    icon: 'ms-Icon ms-Icon--PowerApps',
     type: 'lowcodeskills',
   },
   {
@@ -46,7 +46,7 @@ const lowCodeSkills: Skill[] = [
   },
   {
     name: 'SharePoint',
-    icon: 'ms-Icon ms-Icon--sharepointlogo',
+    icon: 'ms-Icon ms-Icon--SharepointLogo',
     type: 'lowcodeskills',
   },
 ];

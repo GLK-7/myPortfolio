@@ -31,7 +31,7 @@ const Home = () => {
         </Section>
 
         <Section title="Sobre Mim" id="about">
-          <p className="text-white leading-relaxed">
+          <p className="text-white md:text-base font-light text-justify">
             Sou Analista de Dados em formação, Desenvolvedor Low Code e
             Desenvolvedor Web, graduado em Análise e Desenvolvimento de Sistemas
             pelo IFPR. Meu objetivo é contribuir com soluções tecnológicas em
@@ -86,41 +86,53 @@ const Home = () => {
               <p>
                 <span className="font-light">Klabin S/A</span>
               </p>
-              <p className="text-base mt-6">
-                Atuo na elaboração de relatórios e indicadores com Power BI,
-                desenvolvolvimento de soluções low code usando ferramentas do
-                Microsoft 365 para a área de Facilities. Abaixo algumas das
-                minhas competências:
+              <p className="md:text-base font-light mt-6 text-justify">
+                Atuo usando ferramentas do Microsoft 365 para a área de Facilities. Abaixo algumas das
+                minhas funções:
               </p>
-              <ul className="ml-2 space-y-1 mt-4 text-base">
+              <ul className="space-y-4 mt-4 md:text-base text-[#1e1e1e]">
                 <li className="flex items-center">
-                  <i className="fa-solid fa-chart-line text-[#03dac6] mr-2" />
-                  <span>Relatórios e dashboards em Power BI.</span>
-                </li>
-
-                <li className="flex items-center">
-                  <i className="fa-solid fa-database text-[#03dac6] mr-2" />
-                  <span>Importação de dados via API REST.</span>
+                  <div className='bg-gradient-to-r from-[#bb86fc] to-[#cf6679] rounded-full px-4 flex items-center py-1'>
+                    <i className="ms-Icon ms-Icon--PowerBILogo mr-2" />
+                    Dashboards com Power BI.
+                  </div>
                 </li>
                 <li className="flex items-center">
-                  <i className="fa-solid fa-code text-[#03dac6] mr-2" />
-                  <span>Desenvolvimento de soluções low code.</span>
+                  <div className='bg-gradient-to-r from-[#bb86fc] to-[#cf6679] rounded-full px-4 flex items-center py-1'>
+                    <i className="fa-solid fa-database mr-2" />
+                    ETL com API REST.
+                  </div>
+                </li>
+                  <li className="flex items-center">
+                    <div className='bg-gradient-to-r from-[#bb86fc] to-[#cf6679] rounded-full px-4 flex items-center py-1'>
+                      <i className="ms-Icon ms-Icon--PowerApps mr-2" />
+                      Aplicativos com Power Apps.
+                    </div>
+                  </li>
+                
+                <li className="flex items-center">
+                  <div className='bg-gradient-to-r from-[#bb86fc] to-[#cf6679] rounded-full px-4 flex items-center py-1'>
+                    <i className="ms-Icon ms-Icon--MicrosoftFlowLogo mr-2" />
+                    Automatizações com Power Automate.
+                  </div>
                 </li>
                 <li className="flex items-center">
-                  <i className="fa-solid fa-sync text-[#03dac6] mr-2" />
-                  <span>Automatização de processos com Power Automate.</span>
+                  <div className='bg-gradient-to-r from-[#bb86fc] to-[#cf6679] rounded-full px-4 flex items-center py-1'>
+                    <i className="ms-Icon ms-Icon--SharepointLogo mr-2" />
+                    Gestão do SharePoint da Equipe.
+                  </div>
                 </li>
                 <li className="flex items-center">
-                  <i className="fa-solid fa-share-alt text-[#03dac6] mr-2" />
-                  <span>Gestão e organização do SharePoint.</span>
+                  <div className='bg-gradient-to-r from-[#bb86fc] to-[#cf6679] rounded-full px-4 flex items-center py-1'>
+                    <i className="fa-solid fa-chalkboard-teacher mr-2" />
+                    Instrutoria interna em Excel.
+                  </div>
                 </li>
                 <li className="flex items-center">
-                  <i className="fa-solid fa-chalkboard-teacher text-[#03dac6] mr-2" />
-                  <span>Instrutoria interna em Excel.</span>
-                </li>
-                <li className="flex items-center">
-                  <i className="fa-solid fa-table text-[#03dac6] mr-2" />
-                  <span>Consultoria em Excel</span>
+                  <div className='bg-gradient-to-r from-[#bb86fc] to-[#cf6679] rounded-full px-4 flex items-center py-1'>
+                    <i className="fa-solid fa-table mr-2" />
+                    Consultoria em Excel
+                  </div>
                 </li>
               </ul>
             </div>
