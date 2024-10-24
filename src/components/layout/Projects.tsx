@@ -77,6 +77,8 @@ const Projects = ({ projects }: Props) => {
             <i className="fa-solid fa-chart-simple text-white text-[1em] m-1 mr-2" />
             <span className="text-base">Analytics</span>
           </TabsTrigger>
+
+          {/*  
           <TabsTrigger
             className="bg-[#252525] flex-shrink-0 px-4 py-2"
             value="lowcode"
@@ -84,6 +86,7 @@ const Projects = ({ projects }: Props) => {
             <i className="fa-solid fa-code text-white text-[1em] m-1 mr-2" />
             <span className="text-base">Low Code</span>
           </TabsTrigger>
+          */}
           <TabsTrigger
             className="bg-[#252525] flex-shrink-0 px-4 py-2"
             value="web"

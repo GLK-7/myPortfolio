@@ -3,122 +3,40 @@ interface Project {
   name: string;
   description: string;
   category: 'web' | 'analytics' | 'lowcode'; // Usando union types para categorias
+  techs?: string[]; // Lista simples de strings
+  link?: string;
+  githubLink?: string;
 }
+
 
 // Exportação da lista de projetos com o tipo definido
 export const projects: Project[] = [
   {
-    name: 'Projeto Alpha',
+    name: 'Análise Exp. de dados Loggi',
     description:
-      'Uma plataforma inovadora para gestão de projetos, focada em colaboração e eficiência.',
-    category: 'web',
-  },
-  {
-    name: 'Sistema de Gestão de Tarefas',
-    description:
-      'Uma ferramenta completa para organizar tarefas, priorizar atividades e aumentar a produtividade.',
-    category: 'web',
-  },
-  {
-    name: 'Aplicativo de Receitas',
-    description:
-      'Um aplicativo intuitivo que oferece receitas diversificadas, dicas de culinária e planejamento de refeições.',
-    category: 'web',
-  },
-  {
-    name: 'Plataforma de E-learning',
-    description:
-      'Uma plataforma interativa de aprendizado online, com cursos variados e recursos para engajar alunos.',
-    category: 'web',
-  },
-  {
-    name: 'Portal de Vagas',
-    description:
-      'Um site que conecta candidatos a oportunidades de emprego, com suporte para criação de currículos e dicas de entrevistas.',
-    category: 'web',
-  },
-  {
-    name: 'Rede Social para Profissionais',
-    description:
-      'Uma rede social voltada para o networking, permitindo que profissionais compartilhem experiências e construam conexões.',
-    category: 'web',
-  },
-  {
-    name: 'Sistema de Controle Financeiro',
-    description:
-      'Uma ferramenta que ajuda usuários a monitorar despesas, criar orçamentos e otimizar suas finanças pessoais.',
-    category: 'web',
-  },
-  {
-    name: 'App de Monitoramento de Saúde',
-    description:
-      'Um aplicativo que rastreia indicadores de saúde, oferece dicas de bem-estar e integra dados de dispositivos wearables.',
-    category: 'web',
-  },
-  {
-    name: 'Ferramenta de Análise de Dados',
-    description:
-      'Um software avançado para coleta e análise de dados, ideal para empresas que buscam insights estratégicos.',
+      'O projeto analisou as entregas da Loggi no Distrito Federal, reorganizando e visualizando os dados para extrair insights valiosos sobre suas operações na região.',
     category: 'analytics',
+    techs: ['Kaggle', 'Seaborn', 'Pandas', 'Matplotlib'],
+    link: 'https://www.kaggle.com/code/glgodoi/an-lise-explorat-ria-de-dados-loggi-ebac',
+    githubLink: 'https://github.com/GLK-7/aedLoggi'
   },
   {
-    name: 'Jogo Educativo de Matemática',
+    name: 'Secret Word',
     description:
-      'Um jogo interativo que ensina conceitos matemáticos de forma divertida e envolvente para crianças.',
+      'Este é um jogo de adivinhação desenvolvido em React.js, onde os jogadores devem descobrir palavras letra por letra, com três tentativas e pontuação progressiva.',
     category: 'web',
+    techs: ['React'],
+    githubLink: 'https://github.com/GLK-7/secret-word',
+    link:'https://secret-word-nooumj21g-glk-7s-projects.vercel.app/'
   },
   {
-    name: 'Dashboard de Indicadores de Desempenho',
+    name: 'GitHub-Trending-Data-Collection',
     description:
-      'Uma ferramenta de visualização que fornece insights em tempo real sobre métricas chave de negócios.',
+      'O projeto coletou dados da seção "Trending" do GitHub por meio de web crawling com Python, capturando informações como nome, descrição e número de estrelas. Os dados foram salvos em um arquivo CSV para futuras análises de tendências.',
     category: 'analytics',
-  },
-  {
-    name: 'Gerador de Aplicativos Low Code',
-    description:
-      'Uma plataforma que permite aos usuários criar aplicativos personalizados sem precisar de conhecimento avançado de programação.',
-    category: 'lowcode',
-  },
-  {
-    name: 'Analisador de Sentimentos',
-    description:
-      'Um sistema que analisa feedbacks de clientes e extrai sentimentos, ajudando na melhoria de produtos e serviços.',
-    category: 'analytics',
-  },
-  {
-    name: 'Construtor de Sites Low Code',
-    description:
-      'Uma ferramenta que facilita a criação de sites responsivos utilizando uma interface de arrastar e soltar.',
-    category: 'lowcode',
-  },
-  {
-    name: 'Sistema de Recomendação de Produtos',
-    description:
-      'Um algoritmo que sugere produtos com base nas preferências e comportamento do usuário.',
-    category: 'analytics',
-  },
-  {
-    name: 'Plataforma de Automação de Marketing',
-    description:
-      'Um sistema que ajuda empresas a automatizar suas campanhas de marketing e a analisar resultados em tempo real.',
-    category: 'lowcode',
-  },
-  {
-    name: 'App de Gestão de Equipes',
-    description:
-      'Uma ferramenta que facilita a colaboração entre membros da equipe e a organização de projetos.',
-    category: 'web',
-  },
-  {
-    name: 'Sistema de Feedback de Clientes',
-    description:
-      'Uma plataforma que coleta e analisa feedback de clientes para ajudar empresas a entender melhor suas necessidades.',
-    category: 'analytics',
-  },
-  {
-    name: 'Editor de Documentos Online',
-    description:
-      'Uma aplicação que permite a edição colaborativa de documentos em tempo real, com recursos de compartilhamento.',
-    category: 'web',
-  },
+    techs: ['Kaggle','Pandas', 'BeautifulSoup', 'Requests'],
+    githubLink: 'https://github.com/GLK-7/GitHub-Trending-Data-Collection',
+    link:'https://www.kaggle.com/code/glgodoi/github-trending-data-collection'
+  }
+
 ];
