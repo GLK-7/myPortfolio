@@ -3,11 +3,15 @@ import Skills from '../layout/Skills';
 import Projects from '../layout/Projects';
 import { projects } from '../../data/projects';
 import { webskills, analytcskills, lowCodeSkills } from '../../data/skills';
+import Header from '../../components/layout/Header';
 
 const Home = () => {
   return (
+    <>
+    <Header/>
     <body>
       <main>
+        
         <Section title="Projetos" id="projects">
           <Projects projects={projects} />
         </Section>
@@ -156,6 +160,7 @@ const Home = () => {
         </Section>
       </main>
     </body>
+    </>
   );
 };
 

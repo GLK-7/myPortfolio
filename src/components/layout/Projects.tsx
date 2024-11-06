@@ -9,15 +9,10 @@ import {
 } from '../../components/ui/carousel';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import ProjectCard from './ProjectCard';
-
-interface Project {
-  name: string;
-  description: string;
-  category: 'web' | 'analytics' | 'lowcode';
-}
+import { IFProject } from '../layout/ProjectCard';
 
 interface Props {
-  projects: Project[];
+  projects: IFProject[];
 }
 
 const Projects = ({ projects }: Props) => {
@@ -26,7 +21,7 @@ const Projects = ({ projects }: Props) => {
   const [count, setCount] = useState(0);
   const [isGrabbing, setIsGrabbing] = useState(false);
   const [activeTab, setActiveTab] = useState('');
-  const [filteredProjects, setFilteredProjects] = useState<Project[]>(projects);
+  const [filteredProjects, setFilteredProjects] = useState<IFProject[]>(projects);
 
   useEffect(() => {
     if (!api) return;

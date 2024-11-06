@@ -2,14 +2,20 @@ import './index.css';
 
 // Components
 import Home from './components/pages/Home';
-import Header from './components/layout/Header';
+import Report from './components/pages/Report';
 import Footer from './components/layout/Footer';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
     <>
-      <Header />
-      <Home />
+      
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/report/:id" element={<Report />} />
+        </Routes>
+      </Router>
       <Footer />
     </>
   );

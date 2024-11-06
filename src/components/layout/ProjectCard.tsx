@@ -1,16 +1,18 @@
 import { Card, CardContent } from '@/components/ui/card';
 import Button from './Button';
 
-interface Project {
+export interface IFProject {
+  id: number;
   name: string;
   description: string;
   category: 'web' | 'analytics' | 'lowcode';
   techs?: string[];
   link?: string;
   githubLink?: string;
+  reportLink?: string;
 }
 interface Props {
-  project: Project;
+  project: IFProject;
 }
 
 const ProjectCard = ({ project }: Props) => {
@@ -35,7 +37,7 @@ const ProjectCard = ({ project }: Props) => {
           </span>
           <div>
             <span className='text-sm font-light'>Recursos: </span>
-            <ul className='flex gap-1 text-sm flex flex-wrap'>
+            <ul className='gap-1 text-sm flex flex-wrap'>
               {project.techs?.map((tech)=>(
                 <li className='bg-gradient-to-r from-[#03dac6] to-[#bb86fc] rounded-full px-2'>
                   {tech}
