@@ -37,6 +37,15 @@ export const projects: Project[] = [
     techs: ['Kaggle','Pandas', 'BeautifulSoup', 'Requests'],
     githubLink: 'https://github.com/GLK-7/GitHub-Trending-Data-Collection',
     link:'https://www.kaggle.com/code/glgodoi/github-trending-data-collection'
+  },
+  {
+    name: 'Credit EDA - SQL',
+    description:
+      'O projeto analisa dados de crédito com consultas SQL em Amazon Athena e S3 no Kaggle, usando pandas para visualizar resultados. Demonstra como integrar ferramentas de cloud computing para criar pipelines eficientes e gerar insights.',
+    category: 'analytics',
+    techs: ['Kaggle','Pandas', 'SQL', 'AWS', 'Matplotlib'],
+    githubLink: 'https://github.com/GLK-7/Credit-EDA-EBAC',
+    link:'https://www.kaggle.com/code/glgodoi/projeto-3-credit-eda-sql'
   }
 
 ];

@@ -15,8 +15,8 @@ interface Props {
 
 const ProjectCard = ({ project }: Props) => {
   return (
-    <Card className="border-0 bg-0 h-96 flex justify-center">
-      <CardContent className="aspect-square p-6 bg-[#252525] rounded-lg shadow-md flex flex-col justify-between h-96 w-full">
+    <Card className="border-0 bg-0 h-[500px] flex justify-center">
+      <CardContent className="aspect-square p-6 bg-[#252525] rounded-lg shadow-md flex flex-col justify-between h-[500px] w-full">
         <div>
           <i
             className={`${
@@ -35,7 +35,7 @@ const ProjectCard = ({ project }: Props) => {
           </span>
           <div>
             <span className='text-sm font-light'>Recursos: </span>
-            <ul className='flex gap-1 text-sm '>
+            <ul className='flex gap-1 text-sm flex flex-wrap'>
               {project.techs?.map((tech)=>(
                 <li className='bg-gradient-to-r from-[#03dac6] to-[#bb86fc] rounded-full px-2'>
                   {tech}
@@ -43,7 +43,7 @@ const ProjectCard = ({ project }: Props) => {
               ))}
             </ul>
           </div>
-          <p className="mt-4 text-justify">
+          <p className="mt-4">
             <span className="md:text-base font-light">{project.description}</span>
           </p>
         </div>

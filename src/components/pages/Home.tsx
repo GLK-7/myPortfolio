@@ -31,7 +31,7 @@ const Home = () => {
         </Section>
 
         <Section title="Sobre Mim" id="about">
-          <p className="text-white md:text-base font-light text-justify">
+          <p className="text-white md:text-base font-light">
             Sou Analista de Dados em formação, Desenvolvedor Low Code e
             Desenvolvedor Web, graduado em Análise e Desenvolvimento de Sistemas
             pelo IFPR. Meu objetivo é contribuir com soluções tecnológicas em
@@ -86,7 +86,7 @@ const Home = () => {
               <p>
                 <span className="font-light">Klabin S/A</span>
               </p>
-              <p className="md:text-base font-light mt-6 text-justify">
+              <p className="md:text-base font-light mt-6">
                 Atuo usando ferramentas do Microsoft 365 para a área de Facilities. Abaixo algumas das
                 minhas funções:
               </p>
