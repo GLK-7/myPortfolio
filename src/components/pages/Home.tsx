@@ -3,7 +3,7 @@ import Skills from '../layout/Skills';
 import Projects from '../layout/Projects';
 import { projects } from '../../data/projects';
 import { webskills, analytcskills, lowCodeSkills } from '../../data/skills';
-import Header from '../../components/layout/Header';
+import Header from '../layout/Header';
 
 const Home = () => {
   return (
