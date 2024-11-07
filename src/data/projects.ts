@@ -64,6 +64,28 @@ export const projects: Project[] = [
     githubLink: '',
     link:'',
     reportLink: 'https://app.powerbi.com/view?r=eyJrIjoiMjAzMGE2OGYtNDZkMS00NTg4LTg2OTctYTA1ZDFiOGE5ZTJmIiwidCI6IjJkZTM2MjM3LWYyYTEtNGUwNS1hY2U3LWJjMTUxNThlMTVlMSJ9'
+  },
+  {
+    id:6,
+    name: 'Relatório de Custo Fixo Gestores',
+    description:
+      'Este relatório oferece uma visão detalhada das informações de custo fixo, segmentadas por gestor. Ele apresenta métricas essenciais como custo realizado, custo orçado, desvio e variação percentual (V%).',
+    category: 'analytics',
+    techs: ['Power BI','Power Query'],
+    githubLink: '',
+    link:'',
+    reportLink: 'https://app.powerbi.com/view?r=eyJrIjoiYTc4MjcxZjAtMTA2Yy00OGE5LTk4YTAtNmNlOGNiNTM0NjIwIiwidCI6IjJkZTM2MjM3LWYyYTEtNGUwNS1hY2U3LWJjMTUxNThlMTVlMSJ9'
+  },
+  {
+    id:7,
+    name: 'Relatório de Filmes Populares',
+    description:
+      'Este relatório foi elaborado utilizando dados fornecidos pela The Movie Database (TMDb). Ele oferece uma visão interativa sobre os filmes mais populares da atualidade, utilizando as mais recentes tecnologias de integração de dados.',
+    category: 'analytics',
+    techs: ['Power BI','Power Query', 'API Rest'],
+    githubLink: '',
+    link:'',
+    reportLink: 'https://app.powerbi.com/view?r=eyJrIjoiZTYwZjIwNWUtOTg0OS00MjFmLTk2MTctMGM0NDY3ZmMxYThkIiwidCI6IjJkZTM2MjM3LWYyYTEtNGUwNS1hY2U3LWJjMTUxNThlMTVlMSJ9'
   }
 
 ];
