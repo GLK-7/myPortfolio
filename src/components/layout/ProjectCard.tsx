@@ -52,8 +52,8 @@ const ProjectCard = ({ project }: Props) => {
         <div className='items-baseline'>
           
           <div className="mt-2 gap-2 w-full flex flex-wrap md:flex-nowrap justify-center md:justify-start overflow-x-auto h-auto">
-            <Button title="GitHub" icon="devicon-github-original" link={project.githubLink}/>
-            <Button title="Visualizar" icon="fa-solid fa-eye" link={project.link}/>
+            {project.githubLink && <Button title="GitHub" icon="devicon-github-original" link={project.githubLink}/>}
+            <Button title="Visualizar" icon="fa-solid fa-eye" link={project.link || `/report/${project.id}`}/>
           </div>
         </div>
         
