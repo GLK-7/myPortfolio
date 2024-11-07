@@ -32,7 +32,7 @@ export const projects: Project[] = [
     category: 'web',
     techs: ['React'],
     githubLink: 'https://github.com/GLK-7/secret-word',
-    link:'https://secret-word-nooumj21g-glk-7s-projects.vercel.app/'
+    link:'https://secret-word-brown.vercel.app/'
   },
   {
     id:3,
@@ -60,7 +60,7 @@ export const projects: Project[] = [
     description:
       'Este relatório exibe informações detalhadas sobre as vendas de produtos em geral. Este relatório inclui diversos visuais e cards com os principais insights de vendas.',
     category: 'analytics',
-    techs: ['Kaggle','Pandas', 'SQL', 'AWS', 'Matplotlib'],
+    techs: ['Power BI','Power Query'],
     githubLink: '',
     link:'',
     reportLink: 'https://app.powerbi.com/view?r=eyJrIjoiMjAzMGE2OGYtNDZkMS00NTg4LTg2OTctYTA1ZDFiOGE5ZTJmIiwidCI6IjJkZTM2MjM3LWYyYTEtNGUwNS1hY2U3LWJjMTUxNThlMTVlMSJ9'
