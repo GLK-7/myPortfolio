@@ -93,11 +93,14 @@ const Projects = ({ projects }: Props) => {
       </Tabs>
 
       <Carousel
-  className={`w-full cursor-${isGrabbing ? 'grabbing' : 'grab'}`}
+  className="w-full"
   setApi={setApi}
   onMouseDown={() => setIsGrabbing(true)}
   onMouseUp={() => setIsGrabbing(false)}
   onMouseLeave={() => setIsGrabbing(false)}
+  style={{
+    cursor: isGrabbing ? 'grabbing' : 'grab'
+  }}
 >
         <CarouselContent className={'-ml-1'}>
           {filteredProjects.map((project) => (
