@@ -26,6 +26,7 @@ const webskills: Skill[] = [
     type: 'webskills',
   },
   { name: 'React', icon: 'fab fa-react', type: 'frontend' },
+  { name: 'Tailwind CSS', icon: 'devicon-tailwindcss-original', type: 'frontend' },
   { name: 'Typescript', icon: 'devicon-typescript-plain', type: 'webskills' },
   { name: 'MySQL', icon: 'devicon-mysql-original', type: 'webskills' },
   { name: 'MongoDB', icon: 'devicon-mongodb-plain', type: 'webskills' },

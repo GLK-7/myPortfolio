@@ -86,6 +86,17 @@ export const projects: Project[] = [
     githubLink: '',
     link:'',
     reportLink: 'https://app.powerbi.com/view?r=eyJrIjoiZTYwZjIwNWUtOTg0OS00MjFmLTk2MTctMGM0NDY3ZmMxYThkIiwidCI6IjJkZTM2MjM3LWYyYTEtNGUwNS1hY2U3LWJjMTUxNThlMTVlMSJ9'
-  }
+  },
+  {
+    id:8,
+    name: 'React + TypeScript To-Do App',
+    description:
+      'Este é um projeto simples de uma aplicação To-Do desenvolvida com React e TypeScript. O aplicativo permite gerenciar tarefas, incluindo criação, edição e exclusão, com funcionalidades de modal para exclusão.',
+    category: 'web',
+    techs: ['React','TypeScript', 'Tailwind', 'Zod'],
+    githubLink: 'https://github.com/GLK-7/ReactTS-TodoApp',
+    link:'https://react-ts-todo-app-gldodoi.vercel.app/'
+  },
+  
 
 ];
