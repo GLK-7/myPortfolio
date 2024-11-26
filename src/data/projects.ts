@@ -93,9 +93,19 @@ export const projects: Project[] = [
     description:
       'Este é um projeto simples de uma aplicação To-Do desenvolvida com React e TypeScript. O aplicativo permite gerenciar tarefas, incluindo criação, edição e exclusão, com funcionalidades de modal para exclusão.',
     category: 'web',
-    techs: ['React','TypeScript', 'Tailwind', 'Zod'],
+    techs: ['React','TypeScript', 'Tailwind CSS', 'Zod'],
     githubLink: 'https://github.com/GLK-7/ReactTS-TodoApp',
     link:'https://react-ts-todo-app-gldodoi.vercel.app/'
+  },
+   {
+    id:9,
+    name: 'Weather App TS',
+    description:
+      'Este é um projeto de previsão do tempo desenvolvido com React e TypeScript utilizando a API do OpenWeatherMap para fornecer informações meteorológicas em tempo real.',
+    category: 'web',
+    techs: ['React','TypeScript', 'Tailwind CSS', 'OpenWeatherMap API'],
+    githubLink: 'https://github.com/GLK-7/WeatherApp-TS',
+    link:'https://weather-app-ts-glgodoi.vercel.app/'
   },
   
 
