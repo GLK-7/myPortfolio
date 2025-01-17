@@ -14,6 +14,7 @@ const analytcskills: Skill[] = [
     type: 'analytcs',
   },
   { name: 'Excel', icon: 'ms-Icon ms-Icon--ExcelLogo', type: 'analytcs' },
+
 ];
 
 // Array de habilidades web
@@ -25,9 +26,9 @@ const webskills: Skill[] = [
     icon: 'devicon-handlebars-original',
     type: 'webskills',
   },
-  { name: 'React', icon: 'fab fa-react', type: 'frontend' },
+  { name: 'React.js', icon: 'fab fa-react', type: 'frontend' },
   { name: 'Tailwind CSS', icon: 'devicon-tailwindcss-original', type: 'frontend' },
-  { name: 'Typescript', icon: 'devicon-typescript-plain', type: 'webskills' },
+  { name: 'TypeScript', icon: 'devicon-typescript-plain', type: 'webskills' },
   { name: 'MySQL', icon: 'devicon-mysql-original', type: 'webskills' },
   { name: 'MongoDB', icon: 'devicon-mongodb-plain', type: 'webskills' },
   { name: 'Git', icon: 'fab fa-git-alt', type: 'webskills' },

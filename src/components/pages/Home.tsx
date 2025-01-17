@@ -36,7 +36,7 @@ const Home = () => {
 
         <Section title="Sobre Mim" id="about">
           <p className="text-white md:text-base font-light">
-            Sou Analista de Dados em formação, Desenvolvedor Low Code e
+            Sou Analista de Dados, Desenvolvedor Low Code e
             Desenvolvedor Web, graduado em Análise e Desenvolvimento de Sistemas
             pelo IFPR. Meu objetivo é contribuir com soluções tecnológicas em
             todos os projetos em que participo, sempre buscando aprimorar
@@ -51,7 +51,7 @@ const Home = () => {
           <div className="flex flex-col gap-4">
             <div>
               <p className="text-white leading-relaxed text-xs">
-                05/2024 - [Previsão de término: 12/2024]
+                05/2024 - 01/2025
               </p>
               <p>
                 <span className="font-bold bg-gradient-to-r from-[#bb86fc] to-[#cf6679] bg-clip-text text-transparent">
