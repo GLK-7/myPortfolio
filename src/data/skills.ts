@@ -13,7 +13,11 @@ const analytcskills: Skill[] = [
     icon: 'ms-Icon ms-Icon--PowerBILogo',
     type: 'analytcs',
   },
-  { name: 'Excel', icon: 'ms-Icon ms-Icon--ExcelLogo', type: 'analytcs' },
+  { name: 'AWS', icon: 'devicon-amazonwebservices-plain-wordmark', type: 'analytcs' },
+  { name: 'Matplotlib', icon: 'devicon-matplotlib-plain', type: 'analytcs' },
+  { name: 'Pandas', icon: 'devicon-pandas-plain', type: 'analytcs' },
+  { name: 'Seaborn', icon: 'fa-solid fa-chart-simple', type: 'analytcs'},
+  { name: 'SQL', icon: 'fa-solid fa-database', type: 'analytcs'},
 
 ];
 

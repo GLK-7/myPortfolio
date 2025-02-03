@@ -1,6 +1,7 @@
 interface Skill {
   name: string;
   icon: string;
+  imgSrc?:string
 }
 
 interface Props {
@@ -26,7 +27,9 @@ const Skills = ({ skills, title, icon }: Props) => {
             key={index}
             className="bg-[#252525] rounded-lg p-6 text-center shadow-md transition-transform transform hover:-translate-y-1 hover:shadow-lg"
           >
+            
             <i className={skill.icon + ' text-teal-400 text-4xl mb-2'}></i>
+            { !skill.icon ? <img src={skill?.imgSrc}/> : null }
             <p className="text-white">{skill.name}</p>
           </div>
         ))}

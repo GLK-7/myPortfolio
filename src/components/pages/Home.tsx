@@ -41,8 +41,8 @@ const Home = () => {
             pelo IFPR. Meu objetivo é contribuir com soluções tecnológicas em
             todos os projetos em que participo, sempre buscando aprimorar
             processos. Sou apaixonado por tecnologia e pela resolução de
-            problemas. Já atuo profissionalmente com desenvolvimento de
-            relatórios e indicadores corporativos, além de desenvolver soluções
+            problemas. Atuo com desenvolvimento de
+            relatórios e indicadores corporativos com Power BI, análises com Notebooks Python, além de desenvolver soluções
             low code com as principais ferramentas da Microsoft, como Power Apps
             e Power Automate.
           </p>
