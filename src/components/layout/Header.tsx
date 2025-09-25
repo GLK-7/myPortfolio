@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import me from '../../assets/me.jfif';
 import Contacts from './Contacts';
 import Navbar from './Navbar';
 
@@ -69,4 +68,5 @@ const Header = () => {
 };
 
 export default Header;
+
 
