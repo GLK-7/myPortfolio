@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { projects } from '../../data/projects';
 import { reports } from '../../data/reports';
 import { IFProject } from '../layout/ProjectCard';
-import me from '../../assets/me.jfif';
+
 
 const Report = () => {
   const { id } = useParams();

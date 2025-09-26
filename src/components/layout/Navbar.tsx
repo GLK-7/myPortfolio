@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import me from '../../assets/me.jfif';
+
 
 const Navbar = ({ isHeaderVisible }: any) => {
   const [isOpen, setIsOpen] = useState(false);
