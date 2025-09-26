@@ -11,7 +11,7 @@ const Navbar = ({ isHeaderVisible }: any) => {
           {/* Imagem de perfil quando o header sumir */}
           <div className='flex items-center'>
             <img
-              src={me}
+              src="https://github.com/glk-7.png"
               alt="foto de perfil"
               className={`${
                 isHeaderVisible ? 'hidden' : 'block'

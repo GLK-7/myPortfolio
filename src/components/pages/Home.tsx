@@ -36,7 +36,7 @@ const Home = () => {
 
         <Section title="Sobre Mim" id="about">
           <p className="text-white md:text-base font-light">
-            Sou Analista de Dados, Desenvolvedor Low Code e
+            Sou Analista de Dados | BI, Desenvolvedor Low Code e
             Desenvolvedor Web, graduado em Análise e Desenvolvimento de Sistemas
             pelo IFPR. Meu objetivo é contribuir com soluções tecnológicas em
             todos os projetos em que participo, sempre buscando aprimorar
@@ -79,7 +79,72 @@ const Home = () => {
           <div className="flex flex-col gap-4">
             <div>
               <p className="text-white leading-relaxed text-xs">
-                06/2017 - Atual
+                06/2025 - Atual
+              </p>
+
+              <p>
+                <span className="bg-gradient-to-r from-[#bb86fc] to-[#cf6679] bg-clip-text text-transparent font-bold">
+                  Analista de Business Inteligence
+                </span>
+              </p>
+              <p>
+                <span className="font-light">Senai Solções Digitais SC</span>
+              </p>
+              <p className="md:text-base font-light mt-6">
+              Desenvolvo relatórios e dashboards em Power BI de acordo com as demandas dos clientes, garantindo clareza na apresentação das informações e oferecendo suporte à tomada de decisão por meio de análises visuais eficientes. Abaixo algumas das minhas funções:
+              </p>
+              <ul className="space-y-4 mt-4 md:text-base text-[#1e1e1e]">
+                <li className="flex items-center">
+                  <div className='bg-gradient-to-r from-[#bb86fc] to-[#cf6679] rounded-full px-4 flex items-center py-1'>
+                    <i className="ms-Icon ms-Icon--PowerBILogo mr-2" />
+                    Dashboards com Power BI.
+                  </div>
+                </li>
+                <li className="flex items-center">
+                  <div className='bg-gradient-to-r from-[#bb86fc] to-[#cf6679] rounded-full px-4 flex items-center py-1'>
+                    <i className="fa fa-bar-chart mr-2" />
+                    Dashboards com Metabase BI.
+                  </div>
+                </li>
+                <li className="flex items-center">
+                  <div className='bg-gradient-to-r from-[#bb86fc] to-[#cf6679] rounded-full px-4 flex items-center py-1'>
+                    <i className="devicon-git-plain mr-2" />
+                    Versionamento com Git.
+                  </div>
+                </li>
+                <li className="flex items-center">
+                  <div className='bg-gradient-to-r from-[#bb86fc] to-[#cf6679] rounded-full px-4 flex items-center py-1'>
+                    <i className="devicon-gitlab-plain mr-2" />
+                    Documentações no GitLab.
+                  </div>
+                </li>
+                <li className="flex items-center">
+                  <div className='bg-gradient-to-r from-[#bb86fc] to-[#cf6679] rounded-full px-4 flex items-center py-1'>
+                    <i className="devicon-vscode-plain mr-2" />
+                    Construção de códigos com VS Code.
+                  </div>
+                </li>
+                <li className="flex items-center">
+                  <div className='bg-gradient-to-r from-[#bb86fc] to-[#cf6679] rounded-full px-4 flex items-center py-1'>
+                    <i className="devicon-azuresqldatabase-plain mr-2" />
+                    Elaboração de consultas SQL.
+                  </div>
+                </li>
+                <li className="flex items-center">
+                  <div className='bg-gradient-to-r from-[#bb86fc] to-[#cf6679] rounded-full px-4 flex items-center py-1'>
+                    <i className="fa fa-tasks mr-2" />
+                    Ritos Scrum.
+                  </div>
+                </li>
+                
+              </ul>
+            </div>
+            <div className='h-[0.5px] my-8 bg-gradient-to-r from-[#bb86fc] to-[#cf6679]'>
+
+            </div>
+            <div>
+              <p className="text-white leading-relaxed text-xs">
+                06/2017 - 06/2025
               </p>
 
               <p>
@@ -141,6 +206,7 @@ const Home = () => {
               </ul>
             </div>
           </div>
+          
         </Section>
 
         <Section title="Contato" id="contact">

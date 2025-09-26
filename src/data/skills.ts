@@ -18,6 +18,7 @@ const analytcskills: Skill[] = [
   { name: 'Pandas', icon: 'devicon-pandas-plain', type: 'analytcs' },
   { name: 'Seaborn', icon: 'fa-solid fa-chart-simple', type: 'analytcs'},
   { name: 'SQL', icon: 'fa-solid fa-database', type: 'analytcs'},
+  { name: 'Metabase BI', icon: 'fa-solid fa-chart-simple', type: 'analytcs'},
 
 ];
 

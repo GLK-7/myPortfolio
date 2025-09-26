@@ -21,7 +21,7 @@ const Report = () => {
               </a>
               <div className='flex flex-row items-center gap-2'>
                 <span className='text-[#03dac6]'>Relatórios Power BI</span>
-                <img src={me} className='w-8 h-8 rounded-full'/>
+                <img src="https://github.com/glk-7.png" className='w-8 h-8 rounded-full'/>
               </div>
             </div>
 
@@ -43,7 +43,7 @@ const Report = () => {
         </a>
         <div className='flex flex-row items-center gap-2'>
           <span className='text-[#03dac6]'>Relatórios Power BI</span>
-          <img src={me} className='w-8 h-8 rounded-full'/>
+          <img src="https://github.com/glk-7.png" className='w-8 h-8 rounded-full'/>
         </div>
       </div>
       <Section title={project.name} id="projects">
