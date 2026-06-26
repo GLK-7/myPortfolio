@@ -12,25 +12,34 @@ interface Props {
 
 const Skills = ({ skills, title, icon }: Props) => {
   return (
-    <div className="mb-8">
-      <div className="mb-4 flex items-center gap-2">
-        <i className={`${icon} bg-gradient-to-r from-[#03dac6] to-[#bb86fc] bg-clip-text text-transparent text-xl`} />
-        <h3 className="bg-gradient-to-r from-[#bb86fc] to-[#cf6679] bg-clip-text text-transparent text-xl font-bold">
-          {title}
-        </h3>
+    <div>
+      {/* Subtítulo da categoria */}
+      <div className="flex items-center gap-2 mb-3">
+        <i className={`${icon} text-[#03dac6] text-sm`} />
+        <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-widest">{title}</h3>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-4">
+
+      {/* Grid de cards */}
+      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
         {skills.map((skill, index) => (
           <div
             key={index}
-            className="bg-[#252525] rounded-lg p-5 text-center shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_16px_rgba(3,218,198,0.25)] hover:bg-[#2c2c2c]"
+            className="
+              group bg-[#13131f] rounded-xl p-3 text-center
+              border border-white/5
+              transition-all duration-300
+              hover:-translate-y-1 hover:border-[#bb86fc]/30
+              hover:shadow-[0_4px_20px_rgba(187,134,252,0.15)]
+            "
           >
             {skill.icon ? (
-              <i className={`${skill.icon} text-[#03dac6] text-4xl mb-3 block`} />
+              <i className={`${skill.icon} text-[#03dac6] text-2xl mb-2 block transition-colors duration-300 group-hover:text-[#bb86fc]`} />
             ) : skill.imgSrc ? (
-              <img src={skill.imgSrc} alt={skill.name} className="w-10 h-10 mx-auto mb-3" />
+              <img src={skill.imgSrc} alt={skill.name} className="w-7 h-7 mx-auto mb-2" />
             ) : null}
-            <p className="text-white text-sm font-medium">{skill.name}</p>
+            <p className="text-gray-400 text-[11px] font-medium leading-tight group-hover:text-white transition-colors duration-300">
+              {skill.name}
+            </p>
           </div>
         ))}
       </div>

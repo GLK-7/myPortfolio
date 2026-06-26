@@ -5,10 +5,10 @@ interface NavbarProps {
 }
 
 const navLinks = [
-  { href: '#projects', label: 'Projetos' },
-  { href: '#skills', label: 'Habilidades' },
-  { href: '#about', label: 'Sobre mim' },
-  { href: '#education', label: 'Formação' },
+  { href: '#projects',    label: 'Projetos'    },
+  { href: '#skills',      label: 'Habilidades' },
+  { href: '#about',       label: 'Sobre mim'   },
+  { href: '#education',   label: 'Formação'    },
   { href: '#experiences', label: 'Experiência' },
 ];
 
@@ -16,72 +16,65 @@ const Navbar = ({ isHeaderVisible }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const linkClass =
-    'font-bold text-white transition duration-300 ease-in-out hover:text-[#03dac6] hover:bg-white/10 px-4 py-2 rounded';
+    'text-sm font-medium text-gray-300 transition-all duration-200 hover:text-white px-3 py-1.5 rounded-lg hover:bg-white/8';
 
   return (
-    <nav className="bg-gradient-to-tr from-[#3700b3] to-[#6200ee] py-3 sticky top-0 z-50 shadow-lg backdrop-blur-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center">
-          {/* Avatar aparece quando o header some */}
-          <div className="flex items-center w-10">
+    <nav className="sticky top-0 z-50 border-b border-white/5 backdrop-blur-md"
+         style={{ background: 'rgba(13,13,26,0.85)' }}>
+      <div className="max-w-[1100px] mx-auto px-5">
+        <div className="flex items-center justify-between h-12">
+
+          {/* Avatar quando o header some */}
+          <div className="w-8 flex-shrink-0">
             {!isHeaderVisible && (
               <img
                 src="https://github.com/glk-7.png"
-                alt="foto de perfil"
-                className="w-8 h-8 rounded-full border-2 border-[#03dac6] animate-fade-in"
+                alt="Gabriel Lino"
+                className="w-7 h-7 rounded-full border border-[#03dac6]/60 animate-fade-in"
               />
             )}
           </div>
 
           {/* Links desktop */}
-          <ul className="hidden md:flex justify-center flex-1 gap-1">
+          <ul className="hidden md:flex items-center gap-1">
             {navLinks.map(({ href, label }) => (
               <li key={href}>
-                <a href={href} className={linkClass}>
-                  {label}
-                </a>
+                <a href={href} className={linkClass}>{label}</a>
               </li>
             ))}
           </ul>
 
-          {/* Botão hambúrguer */}
-          <div className="flex md:hidden items-center ml-auto">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              aria-label="Toggle menu"
-              className="focus:outline-none p-1"
-            >
-              <svg
-                className="w-6 h-6 text-[#03dac6]"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d={isOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'}
-                />
-              </svg>
-            </button>
-          </div>
+          {/* Hambúrguer mobile */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+            className="md:hidden p-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/8 transition-colors"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                d={isOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'}
+              />
+            </svg>
+          </button>
         </div>
 
         {/* Menu mobile */}
         {isOpen && (
-          <ul
-            className="md:hidden flex flex-col items-center gap-1 pt-2 pb-1"
+          <div
+            className="md:hidden border-t border-white/5 py-2"
             onClick={() => setIsOpen(false)}
           >
             {navLinks.map(({ href, label }) => (
-              <li key={href} className="w-full text-center">
-                <a href={href} className={`block ${linkClass}`}>
-                  {label}
-                </a>
-              </li>
+              <a
+                key={href}
+                href={href}
+                className="block text-sm font-medium text-gray-300 hover:text-white px-3 py-2 rounded-lg hover:bg-white/8 transition-colors"
+              >
+                {label}
+              </a>
             ))}
-          </ul>
+          </div>
         )}
       </div>
     </nav>

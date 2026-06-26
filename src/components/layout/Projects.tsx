@@ -7,7 +7,6 @@ import {
   CarouselNext,
   type CarouselApi,
 } from '../../components/ui/carousel';
-import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import ProjectCard from './ProjectCard';
 import { IFProject } from '../layout/ProjectCard';
 
@@ -18,25 +17,22 @@ interface Props {
 type Category = IFProject['category'] | '';
 
 const tabs: { value: Category; icon: string; label: string }[] = [
-  { value: 'analytics', icon: 'fa-solid fa-chart-simple', label: 'Analytics' },
-  { value: 'web', icon: 'fa-solid fa-window-restore', label: 'Web' },
+  { value: 'analytics', icon: 'fa-solid fa-chart-simple',    label: 'Analytics' },
+  { value: 'web',       icon: 'fa-solid fa-window-restore',  label: 'Web'       },
 ];
 
 const Projects = ({ projects }: Props) => {
-  const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
-  const [count, setCount] = useState(0);
-  const [activeTab, setActiveTab] = useState<Category>('analytics');
+  const [api, setApi]               = useState<CarouselApi>();
+  const [current, setCurrent]       = useState(0);
+  const [count, setCount]           = useState(0);
+  const [activeTab, setActiveTab]   = useState<Category>('analytics');
 
   const filteredProjects =
-    activeTab === ''
-      ? projects
-      : projects.filter((p) => p.category === activeTab);
+    activeTab === '' ? projects : projects.filter(p => p.category === activeTab);
 
-  // Atualiza contador quando api ou filtro mudam
   useEffect(() => {
     if (!api) return;
-    api.scrollTo(0, true); // sem animação para evitar flash
+    api.scrollTo(0, true);
     setCount(api.scrollSnapList().length);
     setCurrent(api.selectedScrollSnap() + 1);
   }, [api, filteredProjects.length]);
@@ -54,42 +50,43 @@ const Projects = ({ projects }: Props) => {
 
   return (
     <div>
-      <Tabs
-        value={activeTab}
-        onValueChange={(v) => setActiveTab(v as Category)}
-        className="mb-6"
-      >
-        <TabsList className="bg-transparent gap-2 flex flex-wrap justify-start h-auto p-0">
-          {tabs.map(({ value, icon, label }) => (
-            <TabsTrigger
+      {/* Tabs */}
+      <div className="flex gap-2 mb-5 flex-wrap">
+        {tabs.map(({ value, icon, label }) => {
+          const isActive = activeTab === value;
+          return (
+            <button
               key={value}
-              value={value}
-              className="bg-[#252525] data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#3700b3] data-[state=active]:to-[#6200ee] px-4 py-2 rounded transition-all duration-200"
+              onClick={() => setActiveTab(value)}
+              className={`
+                flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold
+                transition-all duration-200 border
+                ${isActive
+                  ? 'bg-gradient-to-r from-[#3700b3] to-[#6200ee] border-[#bb86fc]/40 text-white shadow-[0_0_16px_rgba(98,0,238,0.4)]'
+                  : 'bg-[#13131f] border-white/5 text-gray-400 hover:border-white/15 hover:text-white'
+                }
+              `}
             >
-              <i className={`${icon} mr-2 text-sm`} />
-              <span className="text-sm">{label}</span>
-            </TabsTrigger>
-          ))}
-        </TabsList>
-      </Tabs>
+              <i className={`${icon} text-xs`} />
+              {label}
+            </button>
+          );
+        })}
+      </div>
 
       {filteredProjects.length === 0 ? (
-        <div className="text-center py-12 text-gray-400">
-          <i className="fa-solid fa-folder-open text-4xl mb-3 block opacity-40" />
-          <p>Nenhum projeto nesta categoria.</p>
+        <div className="text-center py-12 text-gray-500">
+          <i className="fa-solid fa-folder-open text-3xl mb-3 block opacity-30" />
+          <p className="text-sm">Nenhum projeto nesta categoria.</p>
         </div>
       ) : (
         <>
-          <Carousel
-            className="w-full"
-            setApi={setApi}
-            opts={{ align: 'start' }}
-          >
+          <Carousel className="w-full" setApi={setApi} opts={{ align: 'start' }}>
             <CarouselContent className="-ml-1">
-              {filteredProjects.map((project) => (
+              {filteredProjects.map(project => (
                 <CarouselItem
                   key={project.id}
-                  className="pl-1 md:basis-1/2 lg:basis-1/3 h-full"
+                  className="pl-1 md:basis-1/2 lg:basis-1/3"
                 >
                   <div className="p-1 h-full">
                     <ProjectCard project={project} />
@@ -97,12 +94,27 @@ const Projects = ({ projects }: Props) => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="bg-[#252525] border-0 hover:bg-[#03dac6] hover:text-[#1e1e1e] ml-4 transition-colors duration-200" />
-            <CarouselNext className="bg-[#252525] border-0 hover:bg-[#03dac6] hover:text-[#1e1e1e] mr-4 transition-colors duration-200" />
+            <CarouselPrevious className="bg-[#13131f] border-white/10 text-white hover:bg-[#03dac6] hover:text-[#0d0d1a] hover:border-transparent ml-3 transition-all duration-200" />
+            <CarouselNext    className="bg-[#13131f] border-white/10 text-white hover:bg-[#03dac6] hover:text-[#0d0d1a] hover:border-transparent mr-3 transition-all duration-200" />
           </Carousel>
 
-          <div className="py-3 text-center text-sm text-gray-500">
-            {current} de {count}
+          {/* Indicador de progresso */}
+          <div className="flex items-center justify-center gap-3 mt-4">
+            <div className="flex gap-1.5">
+              {Array.from({ length: count }).map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => api?.scrollTo(i)}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${
+                    i === current - 1
+                      ? 'w-6 bg-[#03dac6]'
+                      : 'w-1.5 bg-white/20 hover:bg-white/40'
+                  }`}
+                  aria-label={`Ir para slide ${i + 1}`}
+                />
+              ))}
+            </div>
+            <span className="text-xs text-gray-500">{current}/{count}</span>
           </div>
         </>
       )}

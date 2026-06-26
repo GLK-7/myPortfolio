@@ -2,10 +2,11 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-gradient-to-r from-[#3700b3] to-[#6200ee] text-white text-center py-6 mt-8">
-      <p>
-        &copy; {year} &mdash; Criado por{' '}
-        <span className="font-bold text-[#03dac6]">Gabriel Lino.</span>
+    <footer className="border-t border-white/5 text-center py-6">
+      <p className="text-xs text-gray-600 tracking-wide">
+        &copy; {year} &mdash; Feito com{' '}
+        <i className="fa-solid fa-heart text-[#cf6679] mx-0.5" />{' '}
+        por <span className="text-[#03dac6] font-medium">Gabriel Lino</span>
       </p>
     </footer>
   );

@@ -16,46 +16,61 @@ interface Props {
   project: IFProject;
 }
 
-const categoryIcon: Record<IFProject['category'], string> = {
-  analytics: 'fa-solid fa-chart-simple',
-  lowcode: 'fa-solid fa-code',
-  web: 'fa-solid fa-window-restore',
+const categoryMeta: Record<IFProject['category'], { icon: string; color: string }> = {
+  analytics: { icon: 'fa-solid fa-chart-simple', color: '#bb86fc' },
+  lowcode:   { icon: 'fa-solid fa-code',          color: '#03dac6' },
+  web:       { icon: 'fa-solid fa-window-restore', color: '#cf6679' },
 };
 
 const ProjectCard = ({ project }: Props) => {
+  const meta = categoryMeta[project.category];
+
   return (
     <Card className="border-0 bg-transparent h-full">
-      <CardContent className="p-6 bg-[#252525] rounded-lg shadow-md flex flex-col justify-between h-full min-h-[420px] transition-all duration-300 hover:shadow-[0_0_20px_rgba(187,134,252,0.2)] hover:bg-[#2c2c2c]">
+      <CardContent
+        className="
+          p-5 bg-[#13131f] rounded-xl border border-white/5
+          flex flex-col justify-between h-full min-h-[340px]
+          transition-all duration-300
+          hover:-translate-y-1 hover:border-white/10
+          hover:shadow-[0_8px_32px_rgba(187,134,252,0.12)]
+        "
+      >
         <div className="flex flex-col gap-3">
-          <div className="flex items-center gap-2">
-            <i className={`${categoryIcon[project.category]} bg-gradient-to-r from-[#03dac6] to-[#bb86fc] bg-clip-text text-transparent text-lg`} />
-            <span className="font-semibold bg-gradient-to-r from-[#bb86fc] to-[#cf6679] bg-clip-text text-transparent text-base leading-tight">
-              {project.name}
-            </span>
+          {/* Cabeçalho */}
+          <div className="flex items-start gap-2">
+            <div
+              className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"
+              style={{ background: `${meta.color}22` }}
+            >
+              <i className={`${meta.icon} text-sm`} style={{ color: meta.color }} />
+            </div>
+            <span className="font-semibold text-white text-sm leading-snug">{project.name}</span>
           </div>
 
+          {/* Tech badges */}
           {project.techs && project.techs.length > 0 && (
-            <div>
-              <span className="text-xs font-medium text-gray-400 uppercase tracking-wide">Recursos</span>
-              <ul className="flex flex-wrap gap-1 mt-1">
-                {project.techs.map((tech) => (
-                  <li
-                    key={tech}
-                    className="bg-gradient-to-r from-[#03dac6] to-[#bb86fc] rounded-full px-2 py-0.5 text-[#1e1e1e] text-xs font-medium"
-                  >
-                    {tech}
-                  </li>
-                ))}
-              </ul>
+            <div className="flex flex-wrap gap-1">
+              {project.techs.map(tech => (
+                <span
+                  key={tech}
+                  className="text-[10px] px-2 py-0.5 rounded-full font-medium text-[#0d0d1a]"
+                  style={{ background: `${meta.color}` }}
+                >
+                  {tech}
+                </span>
+              ))}
             </div>
           )}
 
-          <p className="text-sm font-light leading-relaxed text-gray-300">
+          {/* Descrição */}
+          <p className="text-gray-400 text-xs leading-relaxed font-light">
             {project.description}
           </p>
         </div>
 
-        <div className="mt-4 flex flex-wrap gap-2">
+        {/* Botões */}
+        <div className="flex gap-2 mt-4 flex-wrap">
           {project.githubLink && (
             <Button title="GitHub" icon="devicon-github-original" link={project.githubLink} />
           )}
