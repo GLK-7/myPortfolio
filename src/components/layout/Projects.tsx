@@ -30,12 +30,16 @@ const Projects = ({ projects }: Props) => {
   const filteredProjects =
     activeTab === '' ? projects : projects.filter(p => p.category === activeTab);
 
+  // Reseta e relê os snaps após o DOM atualizar (rAF garante isso)
   useEffect(() => {
     if (!api) return;
-    api.scrollTo(0, true);
-    setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap() + 1);
-  }, [api, filteredProjects.length]);
+    const raf = requestAnimationFrame(() => {
+      api.scrollTo(0, true);
+      setCount(api.scrollSnapList().length);
+      setCurrent(api.selectedScrollSnap() + 1);
+    });
+    return () => cancelAnimationFrame(raf);
+  }, [api, activeTab]); // activeTab como dep — dispara sempre que a aba muda
 
   const onSelect = useCallback(() => {
     if (!api) return;
