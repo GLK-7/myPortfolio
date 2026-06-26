@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import {
   Carousel,
   CarouselContent,
@@ -15,112 +15,98 @@ interface Props {
   projects: IFProject[];
 }
 
+type Category = IFProject['category'] | '';
+
+const tabs: { value: Category; icon: string; label: string }[] = [
+  { value: 'analytics', icon: 'fa-solid fa-chart-simple', label: 'Analytics' },
+  { value: 'web', icon: 'fa-solid fa-window-restore', label: 'Web' },
+];
+
 const Projects = ({ projects }: Props) => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
-  const [isGrabbing, setIsGrabbing] = useState(false);
-  const [activeTab, setActiveTab] = useState('');
-  const [filteredProjects, setFilteredProjects] = useState<IFProject[]>(projects);
+  const [activeTab, setActiveTab] = useState<Category>('analytics');
 
+  const filteredProjects =
+    activeTab === ''
+      ? projects
+      : projects.filter((p) => p.category === activeTab);
+
+  // Atualiza contador quando api ou filtro mudam
   useEffect(() => {
     if (!api) return;
-    // Atualiza os projetos filtrados com base na aba ativa
-    setFilteredProjects(
-      projects.filter((project) => project.category === activeTab)
-    );
-  }, [activeTab, projects]);
+    api.scrollTo(0, true); // sem animação para evitar flash
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap() + 1);
+  }, [api, filteredProjects.length]);
 
-  // Use um useEffect separado para atualizar o count e o scroll do carrossel
-  useEffect(() => {
-    if (!api || filteredProjects.length === 0) return;
-
-    // Usamos um pequeno atraso para garantir que a UI tenha atualizado antes de contar os slides
-    setTimeout(() => {
-      api.scrollTo(0); // Reseta o carrossel para o primeiro slide
-      setCount(api.scrollSnapList().length); // Atualiza o total de slides
-      setCurrent(1); // Define o slide atual como o primeiro
-    }, 50); // Atraso de 50ms para garantir que a UI tenha tempo de renderizar
-  }, [api, filteredProjects]);
-
-  // Use um useEffect separado para o listener do 'select'
-  useEffect(() => {
+  const onSelect = useCallback(() => {
     if (!api) return;
-
-    const updateCurrentSlide = () => setCurrent(api.selectedScrollSnap() + 1);
-    api.on('select', updateCurrentSlide);
-
-    // Cleanup do event listener quando o componente for desmontado ou o api mudar
-    return () => {
-      api.off('select', updateCurrentSlide);
-    };
+    setCurrent(api.selectedScrollSnap() + 1);
   }, [api]);
 
-  return (
-    <>
-      <Tabs
-        defaultValue=""
-        className="my-6 flex flex-wrap justify-center w-full"
-        value={activeTab}
-        onValueChange={setActiveTab}
-      >
-        <TabsList className="bg-0 gap-2 w-full flex flex-wrap justify-center md:justify-start overflow-x-auto h-auto">
-          <TabsTrigger
-            className="bg-[#252525] flex-shrink-0 px-4 py-2"
-            value="analytics"
-          >
-            <i className="fa-solid fa-chart-simple text-white text-[1em] m-1 mr-2" />
-            <span className="text-base">Analytics</span>
-          </TabsTrigger>
+  useEffect(() => {
+    if (!api) return;
+    api.on('select', onSelect);
+    return () => { api.off('select', onSelect); };
+  }, [api, onSelect]);
 
-          {/*  
-          <TabsTrigger
-            className="bg-[#252525] flex-shrink-0 px-4 py-2"
-            value="lowcode"
-          >
-            <i className="fa-solid fa-code text-white text-[1em] m-1 mr-2" />
-            <span className="text-base">Low Code</span>
-          </TabsTrigger>
-          */}
-          <TabsTrigger
-            className="bg-[#252525] flex-shrink-0 px-4 py-2"
-            value="web"
-          >
-            <i className="fa-solid fa-window-restore text-white text-[1em] m-1 mr-2" />
-            <span className="text-base">Web</span>
-          </TabsTrigger>
+  return (
+    <div>
+      <Tabs
+        value={activeTab}
+        onValueChange={(v) => setActiveTab(v as Category)}
+        className="mb-6"
+      >
+        <TabsList className="bg-transparent gap-2 flex flex-wrap justify-start h-auto p-0">
+          {tabs.map(({ value, icon, label }) => (
+            <TabsTrigger
+              key={value}
+              value={value}
+              className="bg-[#252525] data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#3700b3] data-[state=active]:to-[#6200ee] px-4 py-2 rounded transition-all duration-200"
+            >
+              <i className={`${icon} mr-2 text-sm`} />
+              <span className="text-sm">{label}</span>
+            </TabsTrigger>
+          ))}
         </TabsList>
       </Tabs>
 
-      <Carousel
-  className="w-full"
-  setApi={setApi}
-  onMouseDown={() => setIsGrabbing(true)}
-  onMouseUp={() => setIsGrabbing(false)}
-  onMouseLeave={() => setIsGrabbing(false)}
-  style={{
-    cursor: isGrabbing ? 'grabbing' : 'grab'
-  }}
->
-        <CarouselContent className={'-ml-1'}>
-          {filteredProjects.map((project) => (
-            <CarouselItem
-              key={project.name}
-              className={`pl-1 md:basis-1/2 lg:basis-1/3`} // Altera o cursor baseado no estado
-            >
-              <div className="p-1 border-0">
-                <ProjectCard project={project}/>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious className="bg-[#1e1e1e] rounded border-0 ml-4 hover:bg-[#03dac6]" />
-        <CarouselNext className="bg-[#1e1e1e] rounded border-[#1e1e1e] mr-4 hover:bg-[#03dac6]" />
-      </Carousel>
-      <div className="py-2 text-center text-sm text-muted-foreground ">
-        {current} de {count}
-      </div>
-    </>
+      {filteredProjects.length === 0 ? (
+        <div className="text-center py-12 text-gray-400">
+          <i className="fa-solid fa-folder-open text-4xl mb-3 block opacity-40" />
+          <p>Nenhum projeto nesta categoria.</p>
+        </div>
+      ) : (
+        <>
+          <Carousel
+            className="w-full"
+            setApi={setApi}
+            opts={{ align: 'start' }}
+          >
+            <CarouselContent className="-ml-1">
+              {filteredProjects.map((project) => (
+                <CarouselItem
+                  key={project.id}
+                  className="pl-1 md:basis-1/2 lg:basis-1/3 h-full"
+                >
+                  <div className="p-1 h-full">
+                    <ProjectCard project={project} />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="bg-[#252525] border-0 hover:bg-[#03dac6] hover:text-[#1e1e1e] ml-4 transition-colors duration-200" />
+            <CarouselNext className="bg-[#252525] border-0 hover:bg-[#03dac6] hover:text-[#1e1e1e] mr-4 transition-colors duration-200" />
+          </Carousel>
+
+          <div className="py-3 text-center text-sm text-gray-500">
+            {current} de {count}
+          </div>
+        </>
+      )}
+    </div>
   );
 };
 

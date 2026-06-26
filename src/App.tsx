@@ -8,16 +8,20 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <>
-      
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/report/:id" element={<Report />} />
-        </Routes>
-      </Router>
-      <Footer />
-    </>
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Home />
+              <Footer />
+            </>
+          }
+        />
+        <Route path="/report/:id" element={<Report />} />
+      </Routes>
+    </Router>
   );
 }
 

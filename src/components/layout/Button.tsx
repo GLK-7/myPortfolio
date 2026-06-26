@@ -1,28 +1,28 @@
-
 interface Props {
-    icon: string
-    title: string
-    link?: string
+  icon: string;
+  title: string;
+  link?: string;
 }
 
-const Button = ({icon, title, link}: Props)=>{
-    return(
-        <div className="flex-grow w-full hover:bg-[#1e1e1e] rounded transition duration-300 ease-in-out">
-            <button 
-                className="
-                md:w-full h-10 rounded py-1 pl-2 pr-3 w-full
-                bg-gradient-to-br from-[#3700b3] to-[#6200ee] text-white 
-                hover:text-transparent hover:bg-clip-text
-                hover:bg-gradient-to-r hover:from-[#bb86fc] hover:to-[#03dac6]"
-                onClick={() => window.open(link, '_blank')}// Redireciona para o link
-            >
-                <i className={`${icon} m-1 mr-2`} />
-                {title}
-            </button>
-        </div>
+const Button = ({ icon, title, link }: Props) => {
+  return (
+    <a
+      href={link}
+      target={link?.startsWith('http') ? '_blank' : '_self'}
+      rel="noreferrer"
+      className="
+        inline-flex items-center gap-2 px-4 py-2 rounded font-medium text-sm
+        bg-gradient-to-br from-[#3700b3] to-[#6200ee] text-white
+        border border-transparent
+        transition-all duration-300 ease-in-out
+        hover:from-[#bb86fc] hover:to-[#03dac6] hover:text-[#1e1e1e]
+        hover:shadow-md active:scale-95
+      "
+    >
+      <i className={icon} />
+      {title}
+    </a>
+  );
+};
 
-      
-    )
-}
-
-export default Button
+export default Button;
